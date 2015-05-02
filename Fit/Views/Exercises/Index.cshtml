@@ -1,0 +1,43 @@
+﻿@using System.Activities.Statements
+@using System.Collections
+@using System.Web.UI.WebControls
+@using Fit.Models.Helpers
+@model IEnumerable<Fit.Models.Exercise>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Øvelses Bank</h2>
+@using (Html.BeginForm("Index", "Exercises", FormMethod.Post))
+{
+    @Html.TextBox("SearchString")
+    <input type="submit" value="Søg" />
+    @Html.DropDownList("tag", "All")
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Details", new { id = item.Id })">
+    <div>
+    <p>
+    @Html.DisplayFor(modelItem => item.Title)
+    </p>
+    <p>
+    @Html.DisplayFor(modelItem => item.Tag)
+    </p>
+    <img style="height: 50px" width="50px" src="@Href("~/" + item.ImagePath + "")" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        @Html.ActionLink("Details", "Details", new { id = item.Id })
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    }
+    </div>
+    </a>
+
+}
+
+
