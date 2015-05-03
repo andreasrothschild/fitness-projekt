@@ -3,7 +3,7 @@ nav {
 		width  	   : 250px;
 		background : #444;
 		@include pos(0 null 0 0);
-		ul:not(.link-list) {
+		ul:not(.menu__list) {
 			&:not(.user__control) {
 				li {
 					a {
@@ -48,142 +48,93 @@ nav {
 	}
 }
 
+.menu__holder {
+	$menu__holderW : 280px;
+	$menu__holderH : 340px;
 
-
-/* Menu Button */
-.menu-button {
-  position: absolute;
-  bottom: 0;
-  z-index: 1000;
-  margin: auto;
-  padding: 0;
-  display: block;
-  width: 2.5em;
-  height: 2.25em;
-  border: none;
-  font-size: 1.5em;
-  left: 0;
-  right: 0;
-  color: white;
-  cursor: pointer;
-  outline: none;
-  background: transparent;
-}
-
-.menu-button span {
-	display: none;
-}
-
-.menu-button:hover {
-	opacity: 0.6;
-}
-
-/* Menu */
-.menu-wrap {
-	position: fixed;
-	z-index: 999;
-	background: #2e2e2e;
-	-webkit-transition: width 0.3s, height 0.3s;
-	transition: width 0.3s, height 0.3s;
-	width: 0;
-	height: 0;
-	font-size: 1.5em;
-	bottom: 60px;
-	left: 130px;
-	-webkit-transform-origin: 0% 100%;
-	transform-origin: 0% 100%;
-}
-
-.link-list {
-  background: white;
-  height: calc(100% - 98px);
-  margin: 0px;
-  padding: 10px 0;
-}
-
-@media screen and (max-width: 50em) {
-	.menu-button {
-		margin: 0.25em;
+	@include pos(null null 59px 130px, fixed);
+	@include transform-origin(0%, 100%); 
+	@include transition(width 300ms, height 300ms);
+	z-index 		: 999;
+	background 		: #2e2e2e;
+	width 			: 0;
+	height 			: 0;
+	
+	.menu {
+		height 		: 100%;
+		opacity 	: 0;
+		font-size 	: 0.65em;
+		color 		: #64697d;
+		text-align 	: left;
+		.profile {
+			display 		: inline-block;
+			line-height 	: 42px;
+			font-weight 	: 700;
+			padding 		: 1em;
+			width 			: 100%;
+			text-align 		: left;
+			background 		: rgb(46, 46, 46);
+			color 			: $color__white;
+			img {
+				border-radius 	: 50%;
+				display 		: inline-block;
+				vertical-align 	: middle;
+				max-width 		: 70px;
+				margin-right 	: 15px;
+			}
+		}
+		.menu__list {
+			background 	: $color__white;
+			height 		: calc(100% - 87px);
+			margin 		: 0px;
+			padding 	: $spacing-unit--half 0;
+			a {
+				display 		: block;
+				margin 			: 0.25em 0;
+				color 			: #7d8194;
+				text-decoration : none;
+				padding 		: 0.5em 1.5em;
+			}
+			.show-menu & {
+				opacity 	: 1;
+				@include transition(opacity 300ms 300ms);
+			}
+		}
 	}
-	.menu-wrap {
-		bottom: 0.25em;
-		left: 0.25em;
+
+	.show-menu & {
+		width 		: $menu__holderW;
+		height 		: $menu__holderH;
+		@include animation(anim-jelly 800ms linear forwards);
+		box-shadow: 0px 0px $spacing-unit rgba(0,0,0,.5);
+	}
+
+}
+
+.menu__button {
+	@include pos(null 0 0 0);
+	z-index 	: 1000;
+	margin 		: auto;
+	padding 	: 0;
+	display 	: block;
+	width 		: 2.5em;
+	height 		: 2.25em;
+	border 		: none;
+	font-size 	: 1.5em;
+	color 		: $color__white;
+	cursor 		: pointer;
+	outline 	: none;
+	background 	: transparent;
+	&:hover {
+		opacity 	: 0.6;
+	}
+	span {
+		display 	: none;
 	}
 }
 
-.menu {
-	height: 100%;
-	opacity: 0;
-	font-size: 0.65em;
-	color: #64697d;
-	text-align: left;
-}
+.show-menu .menu__holder {
 
-.profile {
-	display: inline-block;
-	line-height: 42px;
-	font-weight: 700;
-	padding: 1em;
-	width: 100%;
-	text-align: left;
-	background: rgb(46, 46, 46);
-	color: white;
-}
-
-.profile img {
-	border-radius: 50%;
-	display: inline-block;
-	vertical-align: middle;
-  	max-width: 70px;
-  	margin-right: 15px;
-}
-
-.link-list a {
-	display: block;
-	margin: 0.25em 0;
-	color: #7d8194;
-	text-decoration: none;
-	padding: 0.5em 1.5em;
-}
-
-.link-list a:hover,
-.link-list a:focus {
-	color: #64697d;
-}
-
-.link-list a span {
-	margin-left: 10px;
-	font-weight: 700;
-	vertical-align: middle;
-}
-
-.icon-list {
-	position: absolute;
-	right: 1em;
-	bottom: 0.9em;
-}
-
-.icon-list a {
-	font-size: 1.5em;
-	margin-left: 0.25em;
-	color: rgba(125,129,148,0.5);
-}
-
-/* Shown menu */
-.show-menu .content::before {
-	opacity: 1;
-	-webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-.show-menu .menu-wrap {
-	width: 280px;
-	height: 340px;
-	-webkit-animation: anim-jelly 0.8s linear forwards;
-	animation: anim-jelly 0.8s linear forwards;
-  	box-shadow: 0px 0px 20px rgba(0,0,0,.5);
 }
 
 .show-menu .menu {
