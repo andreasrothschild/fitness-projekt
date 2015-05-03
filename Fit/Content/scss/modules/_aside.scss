@@ -1,0 +1,20 @@
+aside {
+	&.sidebar {
+		@include pos(0 0 0 null, fixed);
+		width 		: 50px;
+		height 		: calc(100% - 59px);
+		background 	: #222;
+		text-align 	: center;
+		color 		: white;
+		.button {
+			@include transition(all 300ms ease);
+			padding 		: $spacing-unit 0;
+		  	border-bottom 	: 1px solid #1A1A1A;
+		  	cursor 			: pointer;
+		  	&:hover {
+				@include transition(all 300ms ease);
+				background 	: #1A1A1A;
+		  	}
+		}
+	}
+}

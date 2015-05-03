@@ -47,4 +47,6 @@
 
 	init();
 
+	window.sr = new scrollReveal();
+
 })();

@@ -1,7 +1,7 @@
 nav {
 	&:not(.menu) {	
 		width  	   : 250px;
-		background : #444;
+		background : #222;
 		@include pos(0 null 0 0);
 		ul:not(.menu__list) {
 			&:not(.user__control) {

@@ -15,6 +15,7 @@ namespace Fit
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/Content").Include(
+                      "~/Content/js/scrollReveal.js",
                       "~/Content/js/snap.svg-min.js",
                       "~/Content/js/classie.js",
                       "~/Content/js/main.js"));
