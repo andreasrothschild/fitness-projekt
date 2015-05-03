@@ -14,7 +14,7 @@ namespace Fit.Controllers
 {
     public class ExercisesController : Controller
     {
-        private FitContext db = new FitContext();
+        public FitContext db = new FitContext();
 
         // GET: Exercises
         [HttpGet]
@@ -24,7 +24,7 @@ namespace Fit.Controllers
             return View(db.Exercises.ToList());
         }
         [HttpPost]
-        public ActionResult Index(string searchString, string tag)
+        public ActionResult Index(string searchString, string Tag)
         {
             var tagList = new List<string>();
             var GenreQry = from d in db.Exercises
@@ -32,7 +32,7 @@ namespace Fit.Controllers
                            select d.Tag;
 
             tagList.AddRange(GenreQry.Distinct());
-            ViewBag.tag = new SelectList(tagList);
+            ViewBag.Tag = new SelectList(tagList);
 
             var exercises = from m in db.Exercises
                             select m;
@@ -40,9 +40,9 @@ namespace Fit.Controllers
             {
                 exercises = exercises.Where(t => t.Title.Contains(searchString));
             }
-            if (!string.IsNullOrEmpty(tag))
+            if (!string.IsNullOrEmpty(Tag))
             {
-                exercises = exercises.Where(x => x.Tag == tag);
+                exercises = exercises.Where(x => x.Tag == Tag);
             }
 
 

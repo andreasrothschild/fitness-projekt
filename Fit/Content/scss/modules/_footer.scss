@@ -1,0 +1,8 @@
+footer {
+	@include pos(null null 0 null);
+	@include transform(translate3d(250px,0,0));
+	width 		: calc(100% - 250px);
+	background 	: #343434;
+	padding 	: 20px;
+	color 		: $color__white;
+}

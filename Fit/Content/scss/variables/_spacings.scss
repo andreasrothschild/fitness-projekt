@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    $BASE-SPACING
+\*------------------------------------*/
+
+$spacing-unit            : 20px               !default;
+// Less
+$spacing-unit--half      : $spacing-unit / 2  !default;
+$spacing-unit--quarter   : $spacing-unit / 4  !default;
+
+// More
+$spacing-unit--double    : $spacing-unit * 2;
+$spacing-unit--triple    : $spacing-unit * 3;
+$spacing-unit--quadruple : $spacing-unit * 4;
+$spacing-unit--quintuple : $spacing-unit * 5;

@@ -1,0 +1,100 @@
+@mixin pos ($offsets, $shorthand: "a") {
+  @if $shorthand == "r" or $shorthand == "rel" or $shorthand == "relative" {
+    position: relative;
+  } @else if $shorthand == "a" or $shorthand == "ab" or $shorthand == "abs" or $shorthand == "absolute" {
+    position: absolute;
+  } @else if $shorthand == "f" or $shorthand == "fix" or $shorthand == "fixed" {
+    position: fixed;
+  } @else { //didn't match, don't output anything
+    @debug "position accepts 'r, rel, relative, a, ab, abs, absolute, f, fix, fixed' as shorthands"
+  }
+
+  @if length($offsets) == 1 {
+    $positionProperty: top, right, bottom, left;
+
+    @if $offsets != none {
+      @each $property in $positionProperty {
+        #{$property}: $offsets; 
+      }
+    }
+  } @else if length($offsets) == 2 {
+    @if nth($offsets, 1) != none {
+      top: nth($offsets, 1);
+      @if nth($offsets, 2) != none {
+        right: nth($offsets, 2);
+      }
+      bottom: nth($offsets, 1);
+      @if nth($offsets, 2) != none {
+        left: nth($offsets, 2);
+      }
+    }
+  } @else if length($offsets) == 3 {
+    @if nth($offsets, 1) != none {
+      top: nth($offsets, 1);
+    }
+    @if nth($offsets, 2) != none {
+      right: nth($offsets, 2);
+    }
+    @if nth($offsets, 3) != none {
+      bottom: nth($offsets, 3);
+    }
+    @if nth($offsets, 2) != none {
+      left: nth($offsets, 2);
+    }
+  } @else if length($offsets) == 4 {
+    @if nth($offsets, 1) != none {
+      top: nth($offsets, 1);
+    }
+    @if nth($offsets, 2) != none {
+      right: nth($offsets, 2);
+    }
+    @if nth($offsets, 3) != none {
+      bottom: nth($offsets, 3);
+    }
+    @if nth($offsets, 4) != none {
+      left: nth($offsets, 4);
+    }
+  }
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+/**
+ * Mixin scrollbar
+ */
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+ 
+  ::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+  
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}
+
+@mixin calc($property, $expression) { 
+  #{$property}: -webkit-calc(#{$expression}); 
+  #{$property}: calc(#{$expression});  
+} 
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}

@@ -1,0 +1,6 @@
+main {
+	@include transform(translate3d(250px,0,0));
+	width 		: calc(100% - 250px);
+	height 		: 100%;
+  	padding 	: 20px;
+}
