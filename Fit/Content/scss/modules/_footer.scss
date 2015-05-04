@@ -5,4 +5,8 @@ footer {
 	background 	: #343434;
 	padding 	: 20px;
 	color 		: $color__white;
+	p {
+		margin 	: 0;
+		color: $color__white;
+	}
 }

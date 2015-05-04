@@ -8,6 +8,12 @@ all.css
 *.log
 *.sql
 *.sqlite
+*.mdf
+*.ldf
+*.dll
+*.pdb
+App_Data
+bin
  
 # OS generated files #
 ######################
