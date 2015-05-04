@@ -1,0 +1,19 @@
+p {
+	font-size 	   : 14px;
+	line-height    : 20px;
+	margin-bottom  : $spacing-unit--half;
+	color 		   : #444;
+}
+
+.tags {
+	font-size 		: 10px;
+	padding 		: 10px 0;
+	margin 			: 10px 0;
+	border-top 		: 1px solid #ececec;
+	display 		: block;
+	text-align 		: right;
+	text-transform  : uppercase;
+	i {
+		margin 	: 5px 0;
+	}
+}

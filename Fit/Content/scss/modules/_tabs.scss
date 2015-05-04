@@ -1,0 +1,80 @@
+.tabs {
+    margin: 20px 0;
+    background : #444;
+    height: 400px;
+    overflow: hidden;
+    ul {
+        list-style  : none;
+        margin      : 0;
+        width       : 100%;
+        overflow    : hidden;
+        padding     : 0;
+        height      : 50px; 
+        li {
+            width   : 100px;
+            display : inline-block; 
+            &.active {
+                background  : #850A68;
+                a {
+                    color: $color__white;
+                    span {
+                        position: absolute;
+                        margin-left: -40px;
+                        margin-top: -24px;
+                        width: 80px;
+                        background: $color__white;
+                        height: 100%;
+                        display: block;
+                        border-radius: 50%;
+                        opacity: 0;
+                        &.clicked {
+                            -webkit-animation: expand 0.6s cubic-bezier(0.4, 0.0, 0.4, 1) 0s normal;
+                            -moz-animation: expand 0.6s cubic-bezier(0.4, 0.0, 0.4, 1) 0s normal;
+                            border-bottom: 2px solid $color__white;                         
+                        }
+                    }
+                }
+            }
+            a {
+                position        : relative;
+                text-decoration : none;
+                display         : block;
+                width           : 100px;
+                height          : 50px;
+                text-align      : center;
+                line-height     : 52px;
+                font-weight     : 700;
+                font-size       : 14px;
+                color           : white;
+                overflow        : hidden;  
+            }
+        }
+    }
+    section {
+        font-size: 14px;
+        line-height: 20px;
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        p {
+            color: white;
+        }
+        .box {
+            padding: 20px;
+            @include pos(0 0 null 0);
+            @include transition(all 1s ease);
+            &:first-child {
+                @include transform(translate3d(-100%,0,0));
+            }
+            &:last-child {
+                @include transform(translate3d(100%,0,0));
+            }
+            &.show {
+                @include transform(translate3d(0%,0,0));
+                @include transition(all 1s ease);
+            }
+        }
+    }
+}

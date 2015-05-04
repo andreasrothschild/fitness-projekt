@@ -1,0 +1,21 @@
+h1 {
+	text-transform  : uppercase;
+	font-weight 	: 500;
+	font-size 		: 40px;
+	background 		: #444;
+	color 			: $color__white;
+	padding 		: 0 $spacing-unit--half;
+	display 		: inline-block;
+	margin-bottom 	: 30px;
+}
+
+h2 {
+	text-transform  : uppercase;
+	font-weight 	: 500;
+	font-size 		: 30px;
+}
+
+h3 {
+	font-weight: 500;
+	margin-bottom: 5px;
+}

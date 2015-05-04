@@ -18,7 +18,8 @@ namespace Fit
                       "~/Content/js/scrollReveal.js",
                       "~/Content/js/snap.svg-min.js",
                       "~/Content/js/classie.js",
-                      "~/Content/js/main.js"));
+                      "~/Content/js/main.js",
+                      "~/Content/js/app.js"));
 
             bundles.Add(new StyleBundle("~/Content/").Include(
                       "~/Content/all.css"));

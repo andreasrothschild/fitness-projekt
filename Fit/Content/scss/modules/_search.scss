@@ -1,7 +1,7 @@
 .search {
 	@include transition(all 300ms ease);
 	@include transform(translateY(-100%));
-  	margin: -20px -20px -50px -20px;
+  	margin: -20px -20px -40px -20px;
 	opacity 		: 0;
 	background 		: $color__white;
 	&.active {
