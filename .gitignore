@@ -2,21 +2,8 @@
 ###################
 all.css
 .sass-cache
- 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
-*.mdf
-*.ldf
-*.dll
-*.pdb
-App_Data
-bin
- 
-# OS generated files #
-######################
+
+#Junk Files
 .DS_Store
 .DS_Store?
 ._*
@@ -24,3 +11,51 @@ bin
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#Visual Studio Files
+[Oo]bj
+[Bb]in
+[Dd]ebug
+[Bb]uild/
+*.user
+*.suo
+*.exe
+*.pdb
+*.aps
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.[Cc]ache
+*.bak
+*.ncb
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+ipch/ 
+*.dbmdl
+*.csproj.user
+*.cache
+*.swp
+*.vspscc
+*.vssscc
+*.bak.*
+*.bak
+
+#Tools
+_ReSharper.*
+_ReSharper*/
+*.resharper
+*.resharper.user
+[Nn][Dd]epend[Oo]ut*/
+Ankh.NoLoad
+
+#Other
+.svn
+
+# Include DLLs if they're in the NuGet packages directory
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
