@@ -22,20 +22,22 @@
     }
 </p>
 
-@foreach (var item in Model)
-{
-    <div data-sr="enter bottom move 24px" class="excersice__item">
-        <a href="@Url.Action("Details", new { id = item.Id })">
-            <img src="@Href("~/" + item.ImagePath + "")" />
-        </a>
-        <h2>
-            @Html.DisplayFor(modelItem => item.Title), @Html.DisplayFor(modelItem => item.Tag)
-        </h2>
-        @if (User.Identity.IsAuthenticated)
-        {
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        }
-    </div>
-}
+<div grid-isotope>
+    @foreach (var item in Model)
+    {
+        <div class="grid__item">
+            <a href="@Url.Action("Details", new { id = item.Id })">
+                <img src="@Href("~/" + item.ImagePath + "")" />
+            </a>
+            <h2>
+                @Html.DisplayFor(modelItem => item.Title), @Html.DisplayFor(modelItem => item.Tag)
+            </h2>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            }
+        </div>
+    }
+</div>

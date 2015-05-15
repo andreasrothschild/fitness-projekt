@@ -1,0 +1,34 @@
+.grid__item {
+	@include backface-visibility(hidden);
+	display 	: block;
+	width 		: calc(25% - 10px);
+	float 		: left;
+  	color 		: $color__white;
+  	overflow 	: hidden;
+  	position 	: relative;
+  	margin 		: 5px;
+  	&:hover {
+  		img {
+			@include transform(scale(1.1,1.1));
+			@include transition(all 500ms ease);
+  		}
+  	}
+
+	h2 {
+		@include pos(null 0 0 0);
+		background 		: rgba(255,255,255,.5);
+		padding 		: 20px;
+		color 			: #333;
+		text-transform 	: uppercase;
+		font-weight 	: bold;
+		font-size 		: 14px;
+	}
+
+	img {
+		@include transform(scale(1,1));
+		@include transition(all 500ms ease);
+		width 		: 100%;
+	  	float 		: left;
+	  	@include backface-visibility(hidden); 
+	}
+}

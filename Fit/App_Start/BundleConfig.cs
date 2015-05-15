@@ -16,10 +16,12 @@ namespace Fit
 
             bundles.Add(new ScriptBundle("~/bundles/Content").Include(
                       "~/Content/js/scrollReveal.js",
+                      "~/Content/js/isotope.pkgd.min.js",
                       "~/Content/js/snap.svg-min.js",
                       "~/Content/js/classie.js",
                       "~/Content/js/main.js",
-                      "~/Content/js/app.js"));
+                      "~/Content/js/app.js",
+                      "~/Content/js/directives/isotope.js"));
 
             bundles.Add(new StyleBundle("~/Content/").Include(
                       "~/Content/all.css"));
